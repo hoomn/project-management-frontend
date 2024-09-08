@@ -1,0 +1,159 @@
+.errorlist {
+  padding: 1rem 2rem;
+  color: #58151c;
+  border-radius: 0.375rem;
+  border: 1px solid #f1aeb5;
+  background-color: #f8d7da;
+}
+
+a,
+.btn-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+label {
+  font-weight: 500;
+}
+
+.form-control,
+.form-select,
+.dropdown-menu,
+.accordion-item,
+.accordion-button,
+.input-group-text,
+.card,
+.alert,
+.btn {
+  border-radius: 0 !important;
+}
+
+.avatar {
+  background-color: #333333;
+  color: #fff;
+  border-radius: 50%;
+  position: relative;
+  height: 1.8rem;
+  width: 1.8rem;
+  min-width: 1.8rem;
+}
+
+.avatar span {
+  font-size: 0.9rem;
+  line-height: 1rem;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.priority-6 {
+  color: #842029;
+  border-left: 3px solid #842029;
+}
+
+.priority-5 {
+  color: #dc3545;
+  border-left: 3px solid #dc3545;
+}
+
+.priority-4 {
+  color: #ea868f;
+  border-left: 3px solid #ea868f;
+}
+
+.priority-3 {
+  color: #fd7e14;
+  border-left: 3px solid #fd7e14;
+}
+
+.priority-2 {
+  color: #ffc107;
+  border-left: 3px solid #ffc107;
+}
+
+.priority-1 {
+  color: #75b798;
+  border-left: 3px solid #75b798;
+}
+
+.status-1 {
+  color: #343a40;
+  border-left: 3px solid #343a40;
+}
+
+.status-2 {
+  color: #146c43;
+  border-left: 3px solid #146c43;
+}
+
+.status-3 {
+  color: #084298;
+  border-left: 3px solid #084298;
+}
+
+.status-4 {
+  color: #ea868f;
+  border-left: 3px solid #ea868f;
+}
+
+.status-5 {
+  color: #8540f5;
+  border-left: 3px solid #8540f5;
+}
+
+.status-6 {
+  color: #adb5bd;
+  border-left: 3px solid #adb5bd;
+}
+
+.max-10 {
+  max-width: 10rem;
+}
+
+.max-5 {
+  max-width: 5rem;
+}
+
+.max-3 {
+  max-width: 2.6rem;
+}
+
+.min-3 {
+  min-width: 2.6rem;
+}
+
+.accordion-btn i::before {
+  transition: all 0.2s ease;
+  transform: rotate(180deg);
+}
+
+.accordion-btn.collapsed i::before {
+  transform: rotate(0deg);
+}
+
+/* react-bootstrap */
+.dropdown-toggle.no-toggle-icon::before,
+.dropdown-toggle.no-toggle-icon::after {
+  display: none !important;
+}
+
+.border-gray {
+  border-color: #212529 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.border-projects {
+  border-color: #a03232 !important;
+}
+
+.border-tasks {
+  border-color: #01579b !important;
+}
+
+.border-subtasks {
+  border-color: #00acc1 !important;
+}
