@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import createStore from "react-auth-kit/createStore";
 import AuthProvider from "react-auth-kit";
@@ -17,12 +17,12 @@ const Login = lazy(() => import("./routes/Login"));
 const LoginWithCode = lazy(() => import("./routes/LoginWithCode"));
 const Profile = lazy(() => import("./routes/Profile"));
 
-// const Dashboard = lazy(() => import("./routes/Dashboard"));
+const Dashboard = lazy(() => import("./routes/Dashboard"));
 
-// const Project = lazy(() => import("./routes/Project"));
-// const Projects = lazy(() => import("./routes/Projects"));
-// const ProjectAdd = lazy(() => import("./routes/ProjectAdd"));
-// const ProjectDelete = lazy(() => import("./routes/ProjectDelete"));
+const Project = lazy(() => import("./routes/Project"));
+const Projects = lazy(() => import("./routes/Projects"));
+const ProjectAdd = lazy(() => import("./routes/ProjectAdd"));
+const ProjectDelete = lazy(() => import("./routes/ProjectDelete"));
 
 // const Task = lazy(() => import("./routes/Task"));
 // const TaskAdd = lazy(() => import("./routes/TaskAdd"));
@@ -52,14 +52,14 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorBoundary />,
     children: [
-      // { index: true, element: <Dashboard /> },
+      { index: true, element: <Dashboard /> },
 
       { path: "profile", element: <Profile /> },
 
-      // { path: "projects", element: <Projects /> },
-      // { path: "projects/:id", element: <Project /> },
-      // { path: "projects/add", element: <ProjectAdd /> },
-      // { path: "projects/:id/delete", element: <ProjectDelete /> },
+      { path: "projects", element: <Projects /> },
+      { path: "projects/:id", element: <Project /> },
+      { path: "projects/add", element: <ProjectAdd /> },
+      { path: "projects/:id/delete", element: <ProjectDelete /> },
 
       // { path: "tasks", element: <TaskListCurrentDomain /> },
       // { path: "my-tasks", element: <TaskListCurrentUser /> },
@@ -99,7 +99,7 @@ function App() {
       <AuthProvider store={store}>
         <RouterProvider router={router} />
       </AuthProvider>
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }

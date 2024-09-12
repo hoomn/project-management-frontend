@@ -8,8 +8,8 @@ import BreadcrumbMenu from "../components/BreadcrumbMenu";
 import Icon from "../components/Icon";
 import Loading from "../components/Loading";
 import { fetchUser } from "../api/user";
-import UserDetails from "../components/UserDetails";
-import UserForm from "../components/UserForm";
+import UserDetails from "../components/user/UserDetails";
+import UserForm from "../components/user/UserForm";
 
 export default function Profile() {
   const authHeader: string = useAuthHeader() || "";
@@ -25,7 +25,7 @@ export default function Profile() {
     data: user,
     error,
   } = useQuery({
-    queryKey: ["user", currentUser.id],
+    queryKey: ["users", currentUser.id],
     queryFn: () => fetchUser(authHeader, currentUser.id),
   });
 
@@ -44,18 +44,12 @@ export default function Profile() {
       <BreadcrumbMenu title="Profile" />
       <div className="text-end">
         {view === "view" ? (
-          <button
-            className="btn btn-sm btn-outline-dark"
-            onClick={() => handleViewToggle("update")}
-          >
+          <button className="btn btn-sm btn-outline-dark" onClick={() => handleViewToggle("update")}>
             <Icon icon={"pencil-square"} />
             update
           </button>
         ) : (
-          <button
-            className="btn btn-sm btn-outline-danger"
-            onClick={() => handleViewToggle("view")}
-          >
+          <button className="btn btn-sm btn-outline-danger" onClick={() => handleViewToggle("view")}>
             <Icon icon="arrow-counterclockwise" />
             never mind
           </button>

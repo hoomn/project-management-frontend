@@ -3,11 +3,11 @@ import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Alert from "react-bootstrap/Alert";
-import Icon from "./Icon";
+import Icon from "../Icon";
 
-import { updateUser } from "../api/user";
-import { UserProps } from "../types";
-import Loading from "./Loading";
+import { updateUser } from "../../api/user";
+import { UserProps } from "../../types";
+import Loading from "../Loading";
 
 export default function UserForm({ user }: { user: UserProps }) {
   const authHeader: string = useAuthHeader() || "";
@@ -17,9 +17,9 @@ export default function UserForm({ user }: { user: UserProps }) {
 
   const mutation = useMutation({
     mutationFn: (updatedUser: UserProps) => updateUser(authHeader, updatedUser),
-
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["user", user?.id] });
+      // Invalidate every query with a key that starts with `users`
+      queryClient.invalidateQueries({ queryKey: ["users"] });
       navigate("/profile?view=view");
     },
   });
@@ -43,12 +43,7 @@ export default function UserForm({ user }: { user: UserProps }) {
         <label htmlFor="title" className="form-label">
           Email:
         </label>
-        <input
-          {...register("email")}
-          readOnly
-          disabled
-          className="form-control"
-        />
+        <input {...register("email")} readOnly disabled className="form-control" />
 
         <label htmlFor="first_name" className="form-label mt-2">
           First Name:
@@ -60,11 +55,7 @@ export default function UserForm({ user }: { user: UserProps }) {
           })}
           className="form-control"
         />
-        {errors.first_name && (
-          <p className="alert alert-danger mb-0 p-2">
-            {errors.first_name?.message}
-          </p>
-        )}
+        {errors.first_name && <p className="alert alert-danger mb-0 p-2">{errors.first_name?.message}</p>}
 
         <label htmlFor="last_name" className="form-label mt-2">
           Last Name:
@@ -76,32 +67,19 @@ export default function UserForm({ user }: { user: UserProps }) {
           })}
           className="form-control"
         />
-        {errors.last_name && (
-          <p className="alert alert-danger mb-0 p-2">
-            {errors.last_name?.message}
-          </p>
-        )}
+        {errors.last_name && <p className="alert alert-danger mb-0 p-2">{errors.last_name?.message}</p>}
 
         <div className="form-check form-switch my-4">
           <label className="form-check-label" htmlFor="notification">
             Notifications
           </label>
-          <input
-            {...register("notification")}
-            id="notification"
-            type="checkbox"
-            className="form-check-input"
-          />
+          <input {...register("notification")} id="notification" type="checkbox" className="form-check-input" />
         </div>
         <div className="col-md-12 text-end">
           {mutation.isPending ? (
             <Loading size={"sm"} />
           ) : (
-            <button
-              type="submit"
-              className="btn btn-sm btn-outline-success"
-              disabled={!isDirty}
-            >
+            <button type="submit" className="btn btn-sm btn-outline-success" disabled={!isDirty}>
               <Icon icon="floppy" />
               save
             </button>
