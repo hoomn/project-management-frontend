@@ -34,7 +34,7 @@ export default function AttachmentForm({
     reset,
     register,
     handleSubmit,
-  } = useForm<AttachmentProps>({ defaultValues: attachment ? attachment : {} });
+  } = useForm<AttachmentProps>({ defaultValues: attachment ? attachment : { file: "", description: "" } });
 
   const mutation = useMutation({
     mutationFn: attachment
