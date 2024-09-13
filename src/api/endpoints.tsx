@@ -22,16 +22,6 @@ export async function fetchStatusChoices(token: TokenProps) {
   return res.data;
 }
 
-export async function fetchNotifications(token: TokenProps) {
-  const res = await axiosClient(token).get("notifications/");
-  return res.data;
-}
-
-export async function dismissAllNotification(token: TokenProps) {
-  const res = await axiosClient(token).post("notifications/mark_all_as_viewed/");
-  return res.data;
-}
-
 export async function fetchVersion() {
   const res = await axios.get("/version.json");
   return res.data;

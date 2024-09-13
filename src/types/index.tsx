@@ -79,6 +79,17 @@ export type ActivityDescriptionProps = {
   new_value: string;
 };
 
+export type NotificationProps = {
+  id: number;
+  action: string;
+  description?: ActivityDescriptionProps[];
+  viewed: boolean;
+  url: string | null;
+  content_type: string;
+  time_since_creation: string;
+  created_at: string;
+};
+
 export type OptionProps = {
   value: number;
   label: string;
