@@ -1,5 +1,4 @@
 import axiosClient, { axiosClientFile } from "./axios";
-import { AttachmentProps, TokenProps } from "../types";
 
 export async function createAttachment(token: TokenProps, newAttachment: AttachmentProps) {
   const res = await axiosClientFile(token).post("attachments/", newAttachment, {

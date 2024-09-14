@@ -5,7 +5,6 @@ import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import { fetchActivities } from "../../api/activity";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../Loading";
-import { ActivityProps } from "../../types";
 import HistoryItem from "./HistoryItem";
 
 type HistoryComponentProps = {

@@ -6,7 +6,6 @@ import { ErrorMessage } from "@hookform/error-message";
 
 import { createComment, updateComment } from "../../api/comment";
 
-import { CommentProps, UserProps } from "../../types";
 import Loading from "../Loading";
 import Alert from "react-bootstrap/Alert";
 import Icon from "../Icon";

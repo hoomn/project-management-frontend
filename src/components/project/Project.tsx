@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ProjectProps } from "../../types";
 import UserAvatarList from "../user/UserAvatarList";
 import UserAvatar from "../user/UserAvatar";
 // import TaskList from "./TaskList";

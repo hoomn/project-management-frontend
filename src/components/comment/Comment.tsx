@@ -4,7 +4,6 @@ import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 
 import { deleteComment } from "../../api/comment";
-import { CommentProps, UserProps } from "../../types";
 
 import UserAvatar from "../user/UserAvatar";
 import { Alert } from "react-bootstrap";

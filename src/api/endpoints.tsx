@@ -1,4 +1,3 @@
-import { TokenProps } from "../types";
 import axiosClient from "./axios";
 import axios from "axios";
 

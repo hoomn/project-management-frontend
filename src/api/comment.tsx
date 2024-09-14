@@ -1,5 +1,4 @@
 import axiosClient from "./axios";
-import { CommentProps, TokenProps } from "../types";
 
 export async function createComment(token: TokenProps, newComment: CommentProps) {
   const res = await axiosClient(token).post("comments/", newComment);

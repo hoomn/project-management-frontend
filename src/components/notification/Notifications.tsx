@@ -8,8 +8,6 @@ import NotificationItem from "./NotificationItem";
 import Loading from "../Loading";
 import Icon from "../Icon";
 
-import { NotificationProps } from "../../types";
-
 export default function Notifications() {
   const defaultRowsDisplayed = 5;
 

@@ -7,7 +7,6 @@ import Alert from "react-bootstrap/Alert";
 import Icon from "../Icon";
 
 import { updateNotification } from "../../api/notification";
-import { ActivityDescriptionProps, NotificationProps } from "../../types";
 
 export default function NotificationItem({ notification }: { notification: NotificationProps }) {
   const authHeader: string | null = useAuthHeader();

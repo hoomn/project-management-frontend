@@ -7,7 +7,6 @@ import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import { fetchProjects } from "../api/project";
 import Loading from "../components/Loading";
 import { useQuery } from "@tanstack/react-query";
-import { ProjectProps } from "../types";
 import FormLabel from "../components/FormLabel";
 
 export default function Projects() {

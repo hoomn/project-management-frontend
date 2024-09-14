@@ -12,7 +12,6 @@ import Icon from "../Icon";
 import { fetchStatusChoices, fetchPriorityChoices, fetchDomainChoices } from "../../api/endpoints";
 import { fetchUsers } from "../../api/user";
 import { createProject, updateProject } from "../../api/project";
-import { ProjectProps } from "../../types";
 
 export default function ProjectForm({ project = undefined }: { project?: ProjectProps }) {
   const authHeader: string = useAuthHeader() || "";

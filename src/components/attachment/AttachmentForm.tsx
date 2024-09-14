@@ -6,7 +6,6 @@ import { ErrorMessage } from "@hookform/error-message";
 
 import { createAttachment, updateAttachment } from "../../api/attachment";
 
-import { AttachmentProps, UserProps } from "../../types";
 import Loading from "../Loading";
 import { Alert } from "react-bootstrap";
 import Icon from "../Icon";

@@ -8,8 +8,6 @@ import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import Loading from "../Loading";
 
-import { CommentProps } from "../../types";
-
 type CommentListProps = {
   contentType: number;
   objectId: number;

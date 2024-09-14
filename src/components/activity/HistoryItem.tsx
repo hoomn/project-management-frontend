@@ -1,5 +1,4 @@
 import UserAvatar from "../user/UserAvatar";
-import { ActivityDescriptionProps, ActivityProps } from "../../types";
 import Icon from "../Icon";
 
 export default function HistoryItem({ activity }: { activity: ActivityProps }) {

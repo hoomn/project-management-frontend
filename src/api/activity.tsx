@@ -1,5 +1,4 @@
 import axiosClient from "./axios";
-import { TokenProps } from "../types";
 
 export async function fetchActivities(token: TokenProps, content_type: number, object_id: number) {
   const res = await axiosClient(token).get("activities/", {

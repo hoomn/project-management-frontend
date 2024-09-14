@@ -1,4 +1,3 @@
-import { TokenProps, NotificationProps } from "../types";
 import axiosClient from "./axios";
 
 export async function fetchNotifications(token: TokenProps) {

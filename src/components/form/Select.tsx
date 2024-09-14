@@ -1,8 +1,6 @@
 import { Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 
-import { OptionProps } from "../../types";
-
 type MultiSelectProps = {
   options: OptionProps[];
   defaultValue?: number;

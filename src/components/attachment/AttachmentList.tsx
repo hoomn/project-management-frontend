@@ -4,7 +4,6 @@ import { fetchAttachments } from "../../api/attachment";
 import Attachment from "./Attachment";
 import Loading from "../Loading";
 import AttachmentForm from "./AttachmentForm";
-import { AttachmentProps } from "../../types";
 
 type AttachmentListProps = {
   contentType: number;

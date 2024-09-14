@@ -7,7 +7,6 @@ import UserAvatar from "../user/UserAvatar";
 import Loading from "../Loading";
 import Icon from "../Icon";
 
-import { ActivityProps } from "../../types";
 import { fetchAllActivities } from "../../api/activity";
 
 export default function ActivityDashBox() {

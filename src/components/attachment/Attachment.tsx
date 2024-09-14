@@ -4,7 +4,6 @@ import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 
 import { deleteAtachment } from "../../api/attachment";
-import { AttachmentProps, UserProps } from "../../types";
 
 import UserAvatar from "../user/UserAvatar";
 import { Alert } from "react-bootstrap";

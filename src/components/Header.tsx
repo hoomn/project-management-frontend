@@ -4,7 +4,6 @@ import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
 import Icon from "./Icon";
-import { UserProps } from "../types";
 
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -54,11 +53,7 @@ export default function Header() {
                     <Icon icon={"person-bounding-box"} />
                     profile
                   </Link>
-                  <button
-                    key={1}
-                    className="dropdown-item"
-                    onClick={handleSignOut}
-                  >
+                  <button key={1} className="dropdown-item" onClick={handleSignOut}>
                     <Icon icon={"power"} />
                     sign out
                   </button>

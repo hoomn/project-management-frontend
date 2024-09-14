@@ -1,7 +1,6 @@
 import Table from "react-bootstrap/Table";
 import Project from "./Project";
 import ProjectHeader from "./ProjectHeader";
-import { ProjectProps } from "../../types";
 
 export default function ProjectList({ projects }: { projects: ProjectProps[] }) {
   return (

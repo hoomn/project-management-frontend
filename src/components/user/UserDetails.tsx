@@ -1,4 +1,3 @@
-import { UserProps } from "../../types";
 import Icon from "../Icon";
 
 export default function UserDetails({ user }: { user: UserProps }) {

@@ -2,7 +2,6 @@ import UserAvatarList from "../user/UserAvatarList";
 import DateTime from "../DateTime";
 import Priority from "../Priority";
 import Status from "../Status";
-import { ProjectProps } from "../../types";
 import Description from "../Description";
 
 export default function ProjectDetails({ project }: { project: ProjectProps }) {

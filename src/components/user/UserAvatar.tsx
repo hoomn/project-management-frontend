@@ -2,7 +2,6 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import { useQuery } from "@tanstack/react-query";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
-import { UserProps } from "../../types";
 
 import { fetchUsers } from "../../api/user";
 import Loading from "../Loading";

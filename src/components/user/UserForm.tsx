@@ -6,7 +6,6 @@ import Alert from "react-bootstrap/Alert";
 import Icon from "../Icon";
 
 import { updateUser } from "../../api/user";
-import { UserProps } from "../../types";
 import Loading from "../Loading";
 
 export default function UserForm({ user }: { user: UserProps }) {

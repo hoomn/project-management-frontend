@@ -1,5 +1,4 @@
 import axiosClient from "./axios";
-import { ProjectProps } from "../types";
 
 export async function createProject(token: string, newProject: ProjectProps) {
   const res = await axiosClient(token).post("projects/", newProject);

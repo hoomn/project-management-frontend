@@ -1,5 +1,4 @@
 import axios from "axios";
-import { TokenProps } from "../types";
 
 function getAuthToken(): string {
   // Split the cookies into an array
@@ -14,13 +13,10 @@ function getAuthToken(): string {
     var cookie = cookies[i].trim();
 
     // Check if this cookie starts with the provided name
-    if (cookie.indexOf(type_key) === 0)
-      authType = cookie.substring(type_key.length);
-    if (cookie.indexOf(token_key) === 0)
-      authToken = cookie.substring(token_key.length);
+    if (cookie.indexOf(type_key) === 0) authType = cookie.substring(type_key.length);
+    if (cookie.indexOf(token_key) === 0) authToken = cookie.substring(token_key.length);
     // Extract and return the token
-    if (authType !== undefined && authToken !== undefined)
-      return `${authType} ${authToken}`;
+    if (authType !== undefined && authToken !== undefined) return `${authType} ${authToken}`;
   }
 
   // Return undefined if cookie not found

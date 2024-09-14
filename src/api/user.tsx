@@ -1,4 +1,3 @@
-import { UserProps } from "../types";
 import axiosClient from "./axios";
 
 export async function fetchUsers(token: string) {
