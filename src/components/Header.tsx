@@ -1,13 +1,14 @@
+import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
 import useSignOut from "react-auth-kit/hooks/useSignOut";
-import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import Dropdown from "react-bootstrap/Dropdown";
-import Icon from "./Icon";
 
 import Container from "react-bootstrap/Container";
+import Dropdown from "react-bootstrap/Dropdown";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
+import Icon from "./Icon";
 import Version from "./Version";
 
 export default function Header() {

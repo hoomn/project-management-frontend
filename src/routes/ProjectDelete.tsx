@@ -1,11 +1,14 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
-import { fetchProject, deleteProject } from "../api/project";
-import BreadcrumbMenu from "../components/BreadcrumbMenu";
-import Loading from "../components/Loading";
+import { Link, useNavigate, useParams } from "react-router-dom";
+
 import Alert from "react-bootstrap/Alert";
+
+import BreadcrumbMenu from "../components/BreadcrumbMenu";
 import Icon from "../components/Icon";
+import Loading from "../components/Loading";
+
+import { deleteProject, fetchProject } from "../api/project";
 
 export default function ProjectDelete() {
   const navigate = useNavigate();
@@ -40,9 +43,18 @@ export default function ProjectDelete() {
 
   if (isPending) return <Loading />;
   //@ts-ignore
-  if (isError) throw new Response(error.response.data.detail || error.message, { status: error.response?.status });
+  if (isError)
+    throw new Response(error.response.data.detail || error.message, {
+      status: error.response?.status,
+    });
 
-  const menuItems = [{ name: "all projects", url: "/projects", icon: <Icon icon={"chevron-left"} /> }];
+  const menuItems = [
+    {
+      name: "all projects",
+      url: "/projects",
+      icon: <Icon icon={"chevron-left"} />,
+    },
+  ];
 
   return (
     <>

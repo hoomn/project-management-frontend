@@ -1,15 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import useAuthUser from "react-auth-kit/hooks/useAuthUser";
 import { useSearchParams } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 
 import BreadcrumbMenu from "../components/BreadcrumbMenu";
-
 import Icon from "../components/Icon";
 import Loading from "../components/Loading";
-import { fetchUser } from "../api/user";
 import UserDetails from "../components/user/UserDetails";
 import UserForm from "../components/user/UserForm";
+
+import { fetchUser } from "../api/user";
 
 export default function Profile() {
   const authHeader: string = useAuthHeader() || "";

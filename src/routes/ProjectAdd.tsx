@@ -1,9 +1,15 @@
 import BreadcrumbMenu from "../components/BreadcrumbMenu";
-import ProjectForm from "../components/project/ProjectForm";
 import Icon from "../components/Icon";
+import ProjectForm from "../components/project/ProjectForm";
 
 export default function ProjectAdd() {
-  const menuItems = [{ icon: <Icon icon={"chevron-left"} />, name: "all projects", url: "/projects" }];
+  const menuItems = [
+    {
+      icon: <Icon icon={"chevron-left"} />,
+      name: "all projects",
+      url: "/projects",
+    },
+  ];
 
   return (
     <>

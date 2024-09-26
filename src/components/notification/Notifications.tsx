@@ -1,12 +1,14 @@
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
-import { fetchNotifications, dismissAllNotification } from "../../api/notification";
 
 import Alert from "react-bootstrap/Alert";
-import NotificationItem from "./NotificationItem";
-import Loading from "../Loading";
+
 import Icon from "../Icon";
+import Loading from "../Loading";
+import NotificationItem from "./NotificationItem";
+
+import { dismissAllNotification, fetchNotifications } from "../../api/notification";
 
 export default function Notifications() {
   const defaultRowsDisplayed = 5;
@@ -39,7 +41,7 @@ export default function Notifications() {
   };
 
   if (isPending) return <Loading />;
-  if (isError) return <span>Error: {error.message}</span>;
+  if (isError) return <Alert variant={"danger"}>Error: {error.message}</Alert>;
 
   if (data.length < 1) return;
 

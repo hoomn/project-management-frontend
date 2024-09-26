@@ -1,26 +1,35 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import UserAvatarList from "../user/UserAvatarList";
-import UserAvatar from "../user/UserAvatar";
-// import TaskList from "./TaskList";
+
 import DateTime from "../DateTime";
-import Priority from "../Priority";
-import Status from "../Status";
 import Icon from "../Icon";
 import Menu from "../Menu";
+import Priority from "../Priority";
+import Status from "../Status";
+import TaskListSubmenu from "../task/TaskListSubmenu";
+import UserAvatar from "../user/UserAvatar";
+import UserAvatarList from "../user/UserAvatarList";
 
 export default function Project({ project }: { project: ProjectProps }) {
   const [showTasks, setShowTasks] = useState(false);
 
   const menuItems = [
-    { icon: <Icon icon={"plus-circle"} />, name: "new task", url: `/projects/${project.id}/tasks/add` },
-    { icon: <Icon icon={"pencil-square"} />, name: "update project", url: `/projects/${project.id}?view=update` },
+    {
+      icon: <Icon icon={"plus-circle"} />,
+      name: "new task",
+      url: `/projects/${project.id}/tasks/add`,
+    },
+    {
+      icon: <Icon icon={"pencil-square"} />,
+      name: "update project",
+      url: `/projects/${project.id}?view=update`,
+    },
   ];
 
   return (
     <>
       <tr
-        className={`border align-middle${project.status === 1 ? " table-secondary" : ""}${
+        className={`align-middle${project.status === 1 ? " table-secondary" : ""}${
           project.is_overdue ? " table-danger" : ""
         }`}
       >
@@ -53,22 +62,18 @@ export default function Project({ project }: { project: ProjectProps }) {
         <td>
           {project.status !== 1 && <Priority level={project.priority} description={project.get_priority_display} />}
         </td>
-        <td className="d-flex justify-content-end border-0">
-          {project.task_count > 0 && (
-            <button className="btn btn-sm" onClick={() => setShowTasks((prevState) => !prevState)}>
-              {showTasks ? <i className="bi bi-chevron-up"></i> : <i className="bi bi-chevron-down"></i>}
-            </button>
-          )}
-          <Menu items={menuItems} />
+        <td>
+          <div className="d-flex justify-content-end">
+            {project.task_count > 0 && (
+              <button className="btn btn-sm" onClick={() => setShowTasks((prevState) => !prevState)}>
+                {showTasks ? <i className="bi bi-chevron-up"></i> : <i className="bi bi-chevron-down"></i>}
+              </button>
+            )}
+            <Menu items={menuItems} />
+          </div>
         </td>
       </tr>
-      {showTasks && (
-        <tr>
-          {/* <td colSpan={9}>
-            <TaskList projectId={project.id} />
-          </td> */}
-        </tr>
-      )}
+      {showTasks && <TaskListSubmenu projectId={project.id} />}
     </>
   );
 }

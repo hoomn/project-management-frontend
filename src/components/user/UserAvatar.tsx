@@ -1,10 +1,12 @@
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
 import { useQuery } from "@tanstack/react-query";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 
-import { fetchUsers } from "../../api/user";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
+
 import Loading from "../Loading";
+
+import { fetchUsers } from "../../api/user";
 
 type UserAvatarProps = {
   userId: number;
@@ -92,7 +94,10 @@ export default function UserAvatar({ userId, me = 1 }: UserAvatarProps) {
     >
       <div
         className={`avatar text-dark me-${me}`}
-        style={{ backgroundColor: stringToColor(user.first_name + user.last_name), cursor: "pointer" }}
+        style={{
+          backgroundColor: stringToColor(user.first_name + user.last_name),
+          cursor: "pointer",
+        }}
       >
         <span>{user.initial}</span>
       </div>

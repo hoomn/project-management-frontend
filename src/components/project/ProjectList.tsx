@@ -1,4 +1,5 @@
 import Table from "react-bootstrap/Table";
+
 import Project from "./Project";
 import ProjectHeader from "./ProjectHeader";
 
@@ -10,13 +11,9 @@ export default function ProjectList({ projects }: { projects: ProjectProps[] }) 
           <small className="text-muted fst-italic">no projects</small>
         </div>
       ) : (
-        <Table responsive="md" hover>
+        <Table responsive="md">
           <ProjectHeader />
-          <tbody>
-            {projects?.map((project: ProjectProps) => (
-              <Project key={project.id} project={project} />
-            ))}
-          </tbody>
+          <tbody>{projects?.map((project: ProjectProps) => <Project key={project.id} project={project} />)}</tbody>
         </Table>
       )}
     </>

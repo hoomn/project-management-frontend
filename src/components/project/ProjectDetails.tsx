@@ -1,12 +1,12 @@
-import UserAvatarList from "../user/UserAvatarList";
 import DateTime from "../DateTime";
+import Description from "../Description";
 import Priority from "../Priority";
 import Status from "../Status";
-import Description from "../Description";
+import UserAvatarList from "../user/UserAvatarList";
 
 export default function ProjectDetails({ project }: { project: ProjectProps }) {
   return (
-    <div className="row mt-5">
+    <div className="row">
       <div className="col-md-6">
         <p className="text-muted fst-italic fw-light mb-0">Title:</p>
         <div className="mb-4">{project.title}</div>

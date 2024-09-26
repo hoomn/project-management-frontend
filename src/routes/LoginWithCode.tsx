@@ -1,13 +1,16 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { useNavigate, useLocation, Navigate, Link } from "react-router-dom";
 import useSignIn from "react-auth-kit/hooks/useSignIn";
-import axiosClient from "../api/axios";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+
 import { Alert } from "react-bootstrap";
-import { fetchUser } from "../api/user";
-import Loading from "../components/Loading";
+
 import Icon from "../components/Icon";
+import Loading from "../components/Loading";
+
+import axiosClient from "../api/axios";
+import { fetchUser } from "../api/user";
 
 type Msg = {
   text?: string;
@@ -89,9 +92,7 @@ export default function Login() {
     axiosClient()
       .post("users/verify_single_use_code/", { code })
       .then((response: any) => {
-        const decodedToken = JSON.parse(
-          atob(response.data.access.split(".")[1])
-        );
+        const decodedToken = JSON.parse(atob(response.data.access.split(".")[1]));
         fetchUser(`Bearer ${response.data.access}`, decodedToken.user_id)
           .then((currentUser) => {
             const result = signIn({
@@ -150,16 +151,10 @@ export default function Login() {
           autoFocus={true}
           disabled={showCode}
         />
-        {errors.email && (
-          <p className="alert alert-danger mb-0 p-2">{errors.email?.message}</p>
-        )}
+        {errors.email && <p className="alert alert-danger mb-0 p-2">{errors.email?.message}</p>}
         {!showCode && (
           <div className="d-grid mt-3">
-            <button
-              type="submit"
-              className="btn btn-outline-dark"
-              disabled={!isDirty || isLoading}
-            >
+            <button type="submit" className="btn btn-outline-dark" disabled={!isDirty || isLoading}>
               {isLoading ? <Loading size={"sm"} margin={0} /> : "submit"}
             </button>
           </div>
@@ -188,17 +183,9 @@ export default function Login() {
             className="form-control"
             autoComplete="off"
           />
-          {codeErrors.code && (
-            <p className="alert alert-danger mb-0 p-2">
-              {codeErrors.code?.message}
-            </p>
-          )}
+          {codeErrors.code && <p className="alert alert-danger mb-0 p-2">{codeErrors.code?.message}</p>}
           <div className="d-grid mt-3">
-            <button
-              type="submit"
-              className="btn btn-outline-dark"
-              disabled={!isCodeDirty || isLoading}
-            >
+            <button type="submit" className="btn btn-outline-dark" disabled={!isCodeDirty || isLoading}>
               {isLoading ? <Loading size={"sm"} margin={0} /> : "submit"}
             </button>
           </div>

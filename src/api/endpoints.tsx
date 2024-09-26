@@ -1,5 +1,6 @@
-import axiosClient from "./axios";
 import axios from "axios";
+
+import axiosClient from "./axios";
 
 export async function fetchDomain(token: TokenProps, domainId: number) {
   const res = await axiosClient(token).get(`domains/${domainId}/`);

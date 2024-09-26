@@ -1,17 +1,18 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+
 import Alert from "react-bootstrap/Alert";
 
+import Icon from "../Icon";
+import Loading from "../Loading";
 import MultiSelect from "../form/MultiSelect";
 import Select from "../form/Select";
-import Loading from "../Loading";
-import Icon from "../Icon";
 
-import { fetchStatusChoices, fetchPriorityChoices, fetchDomainChoices } from "../../api/endpoints";
-import { fetchUsers } from "../../api/user";
+import { fetchDomainChoices, fetchPriorityChoices, fetchStatusChoices } from "../../api/endpoints";
 import { createProject, updateProject } from "../../api/project";
+import { fetchUsers } from "../../api/user";
 
 export default function ProjectForm({ project = undefined }: { project?: ProjectProps }) {
   const authHeader: string = useAuthHeader() || "";
@@ -113,7 +114,10 @@ export default function ProjectForm({ project = undefined }: { project?: Project
             Title:
           </label>
           <input
-            {...register("title", { required: "* Title is required.", maxLength: 128 })}
+            {...register("title", {
+              required: "* Title is required.",
+              maxLength: 128,
+            })}
             className="form-control"
           />
           {errors.title && <p className="alert alert-danger mb-0 p-2">{errors.title?.message}</p>}

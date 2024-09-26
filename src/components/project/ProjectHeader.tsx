@@ -2,14 +2,28 @@ export default function ProjectHeader() {
   return (
     <thead>
       <tr className="fst-italic">
-        <td className="text-muted">Owner</td>
-        <td className="text-muted">Title</td>
+        <td className="text-muted">
+          <small>Owner</small>
+        </td>
+        <td className="text-muted">
+          <small>Title</small>
+        </td>
         <td></td>
-        <td className="text-muted">Assigned to</td>
-        <td className="text-muted">Start Date</td>
-        <td className="text-muted">End Date</td>
-        <td className="text-muted">Status</td>
-        <td className="text-muted">Priority</td>
+        <td className="text-muted">
+          <small>Assigned to</small>
+        </td>
+        <td className="text-muted">
+          <small>Start Date</small>
+        </td>
+        <td className="text-muted">
+          <small>End Date</small>
+        </td>
+        <td className="text-muted">
+          <small>Status</small>
+        </td>
+        <td className="text-muted">
+          <small>Priority</small>
+        </td>
         <td></td>
       </tr>
     </thead>

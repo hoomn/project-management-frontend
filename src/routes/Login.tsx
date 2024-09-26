@@ -1,12 +1,15 @@
 import { useState } from "react";
-import { useNavigate, useLocation, Navigate, Link } from "react-router-dom";
-import { useForm, SubmitHandler } from "react-hook-form";
-import useSignIn from "react-auth-kit/hooks/useSignIn";
 import useIsAuthenticated from "react-auth-kit/hooks/useIsAuthenticated";
-import { fetchUser } from "../api/user";
-import Loading from "../components/Loading";
-import axiosClient from "../api/axios";
+import useSignIn from "react-auth-kit/hooks/useSignIn";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+
 import { Alert } from "react-bootstrap";
+
+import Loading from "../components/Loading";
+
+import axiosClient from "../api/axios";
+import { fetchUser } from "../api/user";
 
 type MsgProps = {
   text?: string;
@@ -50,10 +53,7 @@ export default function Login() {
 
       try {
         // Fetch user info using the JWT token
-        const currentUser = await fetchUser(
-          `Bearer ${response.data.access}`,
-          decodedToken.user_id
-        );
+        const currentUser = await fetchUser(`Bearer ${response.data.access}`, decodedToken.user_id);
         const result = signIn({
           auth: {
             token: response.data.access,
@@ -114,9 +114,7 @@ export default function Login() {
           className="form-control"
           autoFocus={true}
         />
-        {errors.email && (
-          <p className="alert alert-danger mb-0 p-2">{errors.email?.message}</p>
-        )}
+        {errors.email && <p className="alert alert-danger mb-0 p-2">{errors.email?.message}</p>}
         <label className="form-label" htmlFor="password">
           Password
         </label>
@@ -127,15 +125,9 @@ export default function Login() {
           className="form-control"
           autoComplete="password"
         />
-        {errors.email && (
-          <p className="alert alert-danger mb-0 p-2">{errors.email?.message}</p>
-        )}
+        {errors.email && <p className="alert alert-danger mb-0 p-2">{errors.email?.message}</p>}
         <div className="d-grid mt-3">
-          <button
-            type="submit"
-            className="btn btn-outline-dark"
-            disabled={!isDirty || isLoading}
-          >
+          <button type="submit" className="btn btn-outline-dark" disabled={!isDirty || isLoading}>
             {isLoading ? <Loading size={"sm"} margin={0} /> : "sign in"}
           </button>
         </div>

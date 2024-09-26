@@ -1,5 +1,5 @@
-import Notifications from "../components/notification/Notifications";
 import ActivityDashBox from "../components/activity/ActivityDashBox";
+import Notifications from "../components/notification/Notifications";
 
 export default function Dashboard() {
   return (

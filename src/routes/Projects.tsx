@@ -1,13 +1,15 @@
-import { ChangeEvent } from "react";
-import { useSearchParams } from "react-router-dom";
-import ProjectList from "../components/project/ProjectList";
-import BreadcrumbMenu from "../components/BreadcrumbMenu";
-import Icon from "../components/Icon";
-import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
-import { fetchProjects } from "../api/project";
-import Loading from "../components/Loading";
 import { useQuery } from "@tanstack/react-query";
+import { ChangeEvent } from "react";
+import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
+import { useSearchParams } from "react-router-dom";
+
+import BreadcrumbMenu from "../components/BreadcrumbMenu";
 import FormLabel from "../components/FormLabel";
+import Icon from "../components/Icon";
+import Loading from "../components/Loading";
+import ProjectList from "../components/project/ProjectList";
+
+import { fetchProjects } from "../api/project";
 
 export default function Projects() {
   const authHeader: string = useAuthHeader() || "";
@@ -36,7 +38,7 @@ export default function Projects() {
         prev.set(name, value);
         return prev;
       },
-      { replace: true }
+      { replace: true },
     );
   };
 
@@ -46,7 +48,13 @@ export default function Projects() {
     // return <Message variant={"danger"} text={`Error: ${error.message}`} />;
   }
 
-  const menuItems = [{ icon: <Icon icon={"plus-circle"} />, name: "new project", url: "/projects/add" }];
+  const menuItems = [
+    {
+      icon: <Icon icon={"plus-circle"} />,
+      name: "new project",
+      url: "/projects/add",
+    },
+  ];
 
   // Sort logic
   const sortedData = projects.sort((a: ProjectProps, b: ProjectProps) => {
