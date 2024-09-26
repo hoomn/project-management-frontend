@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import useAuthHeader from "react-auth-kit/hooks/useAuthHeader";
 import { useParams, useSearchParams } from "react-router-dom";
 
@@ -83,9 +84,9 @@ export default function Project() {
       </div>
       {view === "view" && <ProjectDetails project={project} />}
       {view === "update" && <ProjectForm project={project} />}
-      {/* <TaskList projectId={projectId} title={true} /> */}
-      <CommentList contentType={project.content_type} objectId={project.id} />
-      <AttachmentList contentType={project.content_type} objectId={project.id} />
-    </div>
+      <TaskList projectId={projectId} title={true} />
+      <CommentList contentType={project.content_type} objectId={project.id} borderColor="burgundy" />
+      <AttachmentList contentType={project.content_type} objectId={project.id} borderColor="burgundy" />
+    </>
   );
 }
