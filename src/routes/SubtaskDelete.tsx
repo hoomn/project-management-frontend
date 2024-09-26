@@ -44,10 +44,7 @@ export default function SubtaskDelete() {
 
   if (isPending) return <Loading />;
   //@ts-ignore
-  if (isError)
-    throw new Response(error.response.data.detail || error.message, {
-      status: error.response?.status,
-    });
+  if (isError) throw new Response(error.response.data.detail || error.message, { status: error.response?.status });
 
   return (
     <>

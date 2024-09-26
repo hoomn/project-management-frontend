@@ -36,10 +36,7 @@ export default function Subtask() {
 
   if (isPending) return <Loading />;
   //@ts-ignore
-  if (isError)
-    throw new Response(error.response.data.detail || error.message, {
-      status: error.response?.status,
-    });
+  if (isError) throw new Response(error.response.data.detail || error.message, { status: error.response?.status });
 
   function handleViewToggle(view: string) {
     setSearchParams((prev) => {
