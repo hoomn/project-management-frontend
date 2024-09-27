@@ -44,9 +44,12 @@ export default function Header() {
                 </NavLink>
               </Nav>
               <Dropdown drop="start">
-                <Dropdown.Toggle className="btn-sm no-toggle-icon" variant="">
-                  <div className="avatar bg-light text-dark">
-                    <span>{currentUser?.initial}</span>
+                <Dropdown.Toggle className="btn-sm no-toggle-icon p-0" variant="">
+                  <div
+                    className="d-inline-flex justify-content-center align-items-center bg-light text-dark rounded-circle"
+                    style={{ width: 38, height: 38, cursor: "pointer" }}
+                  >
+                    <span className="font-weight-bold">{currentUser?.initial}</span>
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
