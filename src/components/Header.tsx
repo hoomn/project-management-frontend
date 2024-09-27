@@ -43,7 +43,7 @@ export default function Header() {
                   My Tasks
                 </NavLink>
               </Nav>
-              <Dropdown>
+              <Dropdown drop="start">
                 <Dropdown.Toggle className="btn-sm no-toggle-icon" variant="">
                   <div className="avatar bg-light text-dark">
                     <span>{currentUser?.initial}</span>
