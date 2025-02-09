@@ -1,0 +1,116 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.min.css";
+
+.dropdown-toggle.no-toggle-icon::before,
+.dropdown-toggle.no-toggle-icon::after {
+  display: none !important;
+}
+
+.form-control,
+.form-select,
+.dropdown-menu,
+.accordion-item,
+.accordion-button,
+.input-group-text,
+.card,
+.alert,
+.btn {
+  border-radius: 0 !important;
+}
+
+.border-gray {
+  border-color: #212529 !important;
+}
+
+.border-burgundy {
+  border-color: #a03232 !important;
+}
+
+.border-navy {
+  border-color: #01579b !important;
+}
+
+.border-cyan {
+  border-color: #00acc1 !important;
+}
+
+.priority-6 {
+  color: #842029;
+  border-left: 3px solid #842029;
+}
+
+.priority-5 {
+  color: #dc3545;
+  border-left: 3px solid #dc3545;
+}
+
+.priority-4 {
+  color: #ea868f;
+  border-left: 3px solid #ea868f;
+}
+
+.priority-3 {
+  color: #fd7e14;
+  border-left: 3px solid #fd7e14;
+}
+
+.priority-2 {
+  color: #ffc107;
+  border-left: 3px solid #ffc107;
+}
+
+.priority-1 {
+  color: #75b798;
+  border-left: 3px solid #75b798;
+}
+
+.status-1 {
+  color: #343a40;
+  border-left: 3px solid #343a40;
+}
+
+.status-2 {
+  color: #146c43;
+  border-left: 3px solid #146c43;
+}
+
+.status-3 {
+  color: #084298;
+  border-left: 3px solid #084298;
+}
+
+.status-4 {
+  color: #ea868f;
+  border-left: 3px solid #ea868f;
+}
+
+.status-5 {
+  color: #8540f5;
+  border-left: 3px solid #8540f5;
+}
+
+.status-6 {
+  color: #adb5bd;
+  border-left: 3px solid #adb5bd;
+}
+
+.max-25 {
+  max-width: 25rem;
+}
+
+.auth-icon {
+  font-size: 9rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.auth-icon::before {
+  border: 1px solid #f0f0f0;
+  background: #f0f0f0;
+  border-radius: 50%;
+  padding: 2.5rem;
+}
+
+.hoverable {
+  cursor: pointer;
+}

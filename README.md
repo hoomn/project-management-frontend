@@ -1,0 +1,1 @@
+This is the frontend of a project management tool, built with [Next.js](https://nextjs.org). It provides a user-friendly interface for interacting with [the backend API](https://github.com/hoomn/project-management-backend), offering features such as task management and project tracking.
