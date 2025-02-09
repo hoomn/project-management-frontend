@@ -36,7 +36,7 @@ export default function ProjectForm({ defaultValues, onSubmit }: ProjectFormProp
           name="domain"
           register={register("domain")}
           error={errors.domain}
-          fetchUrl="/projects/options/domain/"
+          fetchUrl="/options/domain/"
           className="col-md-6"
         />
 
@@ -64,25 +64,20 @@ export default function ProjectForm({ defaultValues, onSubmit }: ProjectFormProp
           className="col-md-3"
         />
 
-        <APISelect
-          name="status"
-          register={register("status")}
-          error={errors.status}
-          fetchUrl="/projects/options/status/"
-        />
+        <APISelect name="status" register={register("status")} error={errors.status} fetchUrl="/options/status/" />
 
         <APISelect
           name="priority"
           register={register("priority")}
           error={errors.priority}
-          fetchUrl="/projects/options/priority/"
+          fetchUrl="/options/priority/"
         />
 
         <APIMultiSelect<ProjectProps>
           name="assigned_to"
           defaultValue={defaultValues?.assigned_to || []}
           control={control}
-          fetchUrl="/accounts/options/user/"
+          fetchUrl="/options/user/"
         />
 
         <div className="col-md-12 text-end">
