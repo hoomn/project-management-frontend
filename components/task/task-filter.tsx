@@ -28,7 +28,7 @@ export default function TaskFilter({ searchValue, onSearchChange, onFilterChange
     isError: userIsError,
   } = useQuery<OptionProps[]>({
     queryKey: ["select-options", "user"],
-    queryFn: () => api.get("accounts/options/user/"),
+    queryFn: () => api.get("/options/user/"),
   });
 
   const {
@@ -37,7 +37,7 @@ export default function TaskFilter({ searchValue, onSearchChange, onFilterChange
     isError: statusIsError,
   } = useQuery<OptionProps[]>({
     queryKey: ["select-options", "status"],
-    queryFn: () => api.get("/projects/options/status/"),
+    queryFn: () => api.get("/options/status/"),
   });
 
   const {
@@ -46,7 +46,7 @@ export default function TaskFilter({ searchValue, onSearchChange, onFilterChange
     isError: priorityIsError,
   } = useQuery<OptionProps[]>({
     queryKey: ["select-options", "priority"],
-    queryFn: () => api.get("/projects/options/priority/"),
+    queryFn: () => api.get("/options/priority/"),
   });
 
   const handleReset = () => {
