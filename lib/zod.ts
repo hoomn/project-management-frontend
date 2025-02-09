@@ -52,7 +52,7 @@ export const signInSchema = signInFormSchema.extend({ recaptcha: string() });
 export const profileSchema = object({
   first_name: string().min(1, "First name is required.").max(50, "First name must be less than 50 characters."),
   last_name: string().min(1, "Last name is required.").max(50, "Last name must be less than 50 characters."),
-  notification: boolean().default(false),
+  email_notification: boolean().default(false),
 });
 
 export const resetPasswordSchema = object({
