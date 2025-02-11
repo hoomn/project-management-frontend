@@ -74,6 +74,7 @@ export type AttachmentProps = BaseGeneric & {
 export type ActivityProps = BaseGeneric & {
   get_action_display: string;
   description?: ActivityDescriptionProps[];
+  url: string | null;
 };
 
 export type ActivityDescriptionProps = {
