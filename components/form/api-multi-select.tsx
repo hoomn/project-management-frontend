@@ -19,6 +19,7 @@ type APIMultiSelectProps<T extends FieldValues> = {
   control: Control<T>;
   label?: string;
   fetchUrl: string;
+  queryKey?: string;
   className?: string;
 };
 
@@ -28,6 +29,7 @@ export default function APIMultiSelect<T extends FieldValues>({
   control,
   label,
   fetchUrl,
+  queryKey,
   className = "col-md-12",
 }: APIMultiSelectProps<T>) {
   const {
@@ -35,7 +37,7 @@ export default function APIMultiSelect<T extends FieldValues>({
     isLoading,
     isError,
   } = useQuery<OptionProps[]>({
-    queryKey: ["select-options", fetchUrl],
+    queryKey: ["select-options", queryKey || name],
     queryFn: () => api.get(fetchUrl),
   });
 

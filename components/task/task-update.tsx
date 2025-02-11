@@ -28,7 +28,7 @@ export default function TaskUpdate({ id }: { id: string }) {
   const mutation = useMutation({
     mutationFn: (updatedTask: TaskProps) => api.put(`/tasks/${id}/`, updatedTask),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["tasks", id] });
+      queryClient.invalidateQueries({ queryKey: ["tasks"] });
       router.push(`/tasks/${id}`);
     },
     onError: handleMutationError,

@@ -61,7 +61,8 @@ export default function ProjectRetrieve({ id }: { id: string }) {
         <>
           <PageHeader title={project.title} items={menuItems} projectId={id} borderColor="burgundy" />
           <div className="text-end">
-            <Link href={`/projects/${project.id}/update`} className="btn btn-sm btn-outline-dark me-1">
+            <Link href={`/projects/${project.id}/update`} className="btn btn-outline-secondary me-1">
+              <Icon icon="pencil-square" />
               update
             </Link>
             <History contentType={project.content_type} objectId={project.id} />

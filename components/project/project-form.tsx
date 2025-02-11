@@ -7,8 +7,9 @@ import { ProjectProps } from "@/types";
 
 import APIMultiSelect from "@/components/form/api-multi-select";
 import APISelect from "@/components/form/api-select";
+import BackButton from "@/components/form/back-button";
 import FormInputField from "@/components/form/form-input-field";
-import Icon from "@/components/ui/icon";
+import SubmitButton from "@/components/form/submit-button";
 
 import { projectSchema } from "@/lib/zod";
 
@@ -78,22 +79,12 @@ export default function ProjectForm({ defaultValues, onSubmit }: ProjectFormProp
           defaultValue={defaultValues?.assigned_to || []}
           control={control}
           fetchUrl="/options/user/"
+          queryKey="user"
         />
 
-        <div className="col-md-12 text-end">
-          <button type="submit" className="btn btn-sm btn-outline-success" disabled={!isDirty}>
-            {defaultValues ? (
-              <>
-                <Icon icon="floppy" />
-                save
-              </>
-            ) : (
-              <>
-                <Icon icon="plus-circle" />
-                add
-              </>
-            )}
-          </button>
+        <div className="col-md-12 mt-4 text-end">
+          <BackButton href={`/projects/${defaultValues?.id || ""}`} />
+          <SubmitButton isDirty={isDirty} isUpdate={!!defaultValues?.id} />
         </div>
       </Form>
     </>

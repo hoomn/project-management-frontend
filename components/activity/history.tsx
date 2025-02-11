@@ -32,10 +32,9 @@ export default function History({ contentType, objectId }: HistoryComponentProps
 
   return (
     <>
-      <button className="btn btn-sm btn-outline-dark" onClick={handleShowModal}>
+      <button className="btn btn-outline-secondary" onClick={handleShowModal}>
         <Icon icon={"clock-history"} me={0} />
       </button>
-
       <Modal show={showModal} size="lg" onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>

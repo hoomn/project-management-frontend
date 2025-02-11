@@ -28,7 +28,7 @@ export default function ActivityList() {
   const [page, setPage] = useState(1);
 
   const { data, error, isLoading } = useQuery<PaginatedResponse>({
-    queryKey: ["activities", "page", page],
+    queryKey: ["activities", { page: page }],
     queryFn: () => api.get(`/activities/?page=${page}`),
   });
 

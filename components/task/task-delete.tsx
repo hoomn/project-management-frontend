@@ -29,7 +29,6 @@ export default function TaskDelete({ id }: { id: string }) {
     mutationFn: () => api.delete(`/tasks/${id}/`),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
-      queryClient.invalidateQueries({ queryKey: ["projects", `${data!.project}`, "tasks"] });
       router.push(`/projects/${data!.project}`);
     },
     onError: handleMutationError,

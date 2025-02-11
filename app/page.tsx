@@ -12,7 +12,7 @@ export default async function Home() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["activities", "page", 1],
+    queryKey: ["activities", { page: 1 }],
     queryFn: () => api.get<ActivityProps[]>("/activities/?page=1"),
   });
 

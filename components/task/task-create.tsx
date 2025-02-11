@@ -22,7 +22,6 @@ export default function TaskCreate({ projectId }: { projectId: string }) {
     mutationFn: (data: TaskProps) => api.post("/tasks/", data),
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["tasks"] });
-      queryClient.invalidateQueries({ queryKey: ["projects", projectId, "tasks"] });
       router.push(`/tasks/${data.id}`);
     },
   });
@@ -36,7 +35,7 @@ export default function TaskCreate({ projectId }: { projectId: string }) {
     <>
       {mutation.isError && <MutationError error={mutation.error} reset={mutation.reset} />}
       {mutation.isPending && <Loading />}
-      <TaskForm onSubmit={onSubmit} />
+      <TaskForm onSubmit={onSubmit} defaultValues={{ project: projectId }} />
     </>
   );
 }
