@@ -64,7 +64,7 @@ export default function UserAvatar({ userId, me = 1 }: UserAvatarProps) {
 
   if (isPending)
     return (
-      <div className="spinner-border" style={{ height: 28, width: 28 }} role="status">
+      <div className={`spinner-border me-${me}`} style={{ height: 28, width: 28 }} role="status">
         <span className="visually-hidden">Loading...</span>
       </div>
     );
