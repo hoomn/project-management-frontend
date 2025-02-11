@@ -9,9 +9,9 @@ export default function Activity({ activity }: { activity: ActivityProps }) {
   return (
     <div className="d-flex align-items-center border-bottom pb-1 mb-1" key={activity.id}>
       <div className="d-flex text-muted align-items-center me-auto">
-        <UserAvatar userId={activity.created_by} />
+        <UserAvatar userId={activity.created_by} me={2} />
         {activity.url ? (
-          <Link href={activity.url} className="text-decoration-none ms-1">
+          <Link href={activity.url} className="text-decoration-none">
             {title}
           </Link>
         ) : (
