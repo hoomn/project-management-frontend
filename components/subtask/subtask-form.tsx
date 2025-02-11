@@ -7,15 +7,16 @@ import { SubtaskProps } from "@/types";
 
 import APIMultiSelect from "@/components/form/api-multi-select";
 import APISelect from "@/components/form/api-select";
+import BackButton from "@/components/form/back-button";
 import FormInputField from "@/components/form/form-input-field";
-import Icon from "@/components/ui/icon";
+import SubmitButton from "@/components/form/submit-button";
 
 import { subtaskSchema } from "@/lib/zod";
 
 import Form from "react-bootstrap/Form";
 
 type TaskFormProps = {
-  defaultValues?: SubtaskProps;
+  defaultValues?: Partial<SubtaskProps>;
   onSubmit: (data: SubtaskProps) => void;
 };
 
@@ -31,6 +32,15 @@ export default function TaskForm({ defaultValues, onSubmit }: TaskFormProps) {
     <>
       <Form onSubmit={handleSubmit(onSubmit)} className="row g-3" noValidate>
         <FormInputField name="title" register={register("title")} error={errors.title} />
+
+        <APISelect
+          name="task"
+          register={register("task")}
+          error={errors.task}
+          fetchUrl="/options/task/"
+          disabled
+          className="col-md-6"
+        />
 
         <FormInputField
           name="description"
@@ -70,22 +80,12 @@ export default function TaskForm({ defaultValues, onSubmit }: TaskFormProps) {
           defaultValue={defaultValues?.assigned_to || []}
           control={control}
           fetchUrl="/options/user/"
+          queryKey="user"
         />
 
-        <div className="col-md-12 text-end">
-          <button type="submit" className="btn btn-sm btn-outline-success" disabled={!isDirty}>
-            {defaultValues ? (
-              <>
-                <Icon icon="floppy" />
-                save
-              </>
-            ) : (
-              <>
-                <Icon icon="plus-circle" />
-                add
-              </>
-            )}
-          </button>
+        <div className="col-md-12 mt-4 text-end">
+          <BackButton href={defaultValues?.id ? `/subtasks/${defaultValues?.id}` : `/tasks/${defaultValues?.task}`} />
+          <SubmitButton isDirty={isDirty} isUpdate={!!defaultValues?.id} />
         </div>
       </Form>
     </>

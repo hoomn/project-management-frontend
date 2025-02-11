@@ -16,16 +16,27 @@ type APISelectProps = {
   error?: FieldError;
   label?: string;
   fetchUrl: string;
+  queryKey?: string;
+  disabled?: boolean;
   className?: string;
 };
 
-export default function APISelect({ name, register, error, label, fetchUrl, className = "col-md-3" }: APISelectProps) {
+export default function APISelect({
+  name,
+  register,
+  error,
+  label,
+  fetchUrl,
+  queryKey,
+  disabled,
+  className = "col-md-3",
+}: APISelectProps) {
   const {
     data: options = [],
     isLoading,
     isError,
   } = useQuery<OptionProps[]>({
-    queryKey: ["select-options", fetchUrl],
+    queryKey: ["select-options", queryKey || name],
     queryFn: () => api.get(fetchUrl),
   });
 
@@ -43,7 +54,7 @@ export default function APISelect({ name, register, error, label, fetchUrl, clas
         </Form.Select>
       )}
       {options.length > 0 && (
-        <Form.Select {...register} isInvalid={!!error} disabled={isLoading || isError}>
+        <Form.Select {...register} isInvalid={!!error} disabled={disabled || isLoading || isError}>
           <option value="">{isLoading ? "Loading..." : isError ? "Error fetching" : "-- select --"}</option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>

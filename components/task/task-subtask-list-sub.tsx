@@ -15,7 +15,7 @@ export default function TaskSubtaskListSub({ taskId }: { taskId: string }) {
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["tasks", taskId, "subtasks"],
+    queryKey: ["subtasks", { task: taskId }],
     queryFn: () => api.get<SubtaskProps[]>(`tasks/${taskId}/subtasks/`),
   });
 

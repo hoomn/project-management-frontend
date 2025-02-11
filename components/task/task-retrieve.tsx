@@ -61,7 +61,8 @@ export default function TaskRetrieve({ id }: { id: string }) {
         <>
           <PageHeader title={task.title} items={menuItems} taskId={id} borderColor="navy" />
           <div className="text-end">
-            <Link href={`/tasks/${task.id}/update`} className="btn btn-sm btn-outline-dark me-1">
+            <Link href={`/tasks/${task.id}/update`} className="btn btn-outline-secondary me-1">
+              <Icon icon="pencil-square" />
               update
             </Link>
             <History contentType={task.content_type} objectId={task.id} />

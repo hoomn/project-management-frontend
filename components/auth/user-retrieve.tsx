@@ -21,7 +21,7 @@ export default function UserRetrieve() {
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["users", "current"],
+    queryKey: ["users", "me"],
     queryFn: () => api.get<UserProps>("/auth/users/me"),
   });
 

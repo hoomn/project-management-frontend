@@ -29,7 +29,6 @@ export default function SubtaskDelete({ id }: { id: string }) {
     mutationFn: () => api.delete(`/subtasks/${id}/`),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["subtasks"] });
-      queryClient.invalidateQueries({ queryKey: ["tasks", `${data!.task}`, "subtasks"] });
       router.push(`/tasks/${data!.task}`);
     },
     onError: handleMutationError,

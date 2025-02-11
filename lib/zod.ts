@@ -76,5 +76,10 @@ export const projectSchema = baseItemSchema.extend({
   domain: z.coerce.string().min(1, "Domain is required."),
 });
 
-export const taskSchema = baseItemSchema;
-export const subtaskSchema = baseItemSchema;
+export const taskSchema = baseItemSchema.extend({
+  project: z.coerce.string().min(1, "Project is required."),
+});
+
+export const subtaskSchema = baseItemSchema.extend({
+  task: z.coerce.string().min(1, "Task is required."),
+});

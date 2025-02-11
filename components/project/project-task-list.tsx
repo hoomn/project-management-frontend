@@ -20,7 +20,7 @@ export default function ProjectTaskList({ projectId }: { projectId: string }) {
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["projects", projectId, "tasks"],
+    queryKey: ["tasks", { project: projectId }],
     queryFn: () => api.get<TaskProps[]>(`projects/${projectId}/tasks/`),
   });
 

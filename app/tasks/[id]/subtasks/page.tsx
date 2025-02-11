@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["tasks", id, "subtasks"],
+    queryKey: ["subtasks", { task: id }],
     queryFn: () => api.get<SubtaskProps>(`/tasks/${id}/subtasks/`),
   });
 

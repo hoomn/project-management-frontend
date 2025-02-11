@@ -11,7 +11,7 @@ export default async function Page() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["users", "current"],
+    queryKey: ["users", "me"],
     queryFn: () => api.get<UserProps>("/auth/users/me"),
   });
 

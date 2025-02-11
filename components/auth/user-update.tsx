@@ -21,14 +21,14 @@ export default function UserUpdate() {
   const router = useRouter();
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["users", "current"],
+    queryKey: ["users", "me"],
     queryFn: () => api.get<UserProps>("/auth/users/me/"),
   });
 
   const mutation = useMutation({
     mutationFn: (data: UserProps) => api.put("/auth/users/me/", data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["users", "current"] });
+      queryClient.invalidateQueries({ queryKey: ["users", "me"] });
       router.push("/auth/profile");
     },
     onError: handleMutationError,

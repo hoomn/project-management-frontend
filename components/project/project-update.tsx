@@ -30,7 +30,7 @@ export default function ProjectUpdate({ id }: { id: string }) {
   const mutation = useMutation({
     mutationFn: (updatedProject: ProjectProps) => api.put(`/projects/${id}/`, updatedProject),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["projects", id] });
+      queryClient.invalidateQueries({ queryKey: ["projects"] });
       toast.success("Project updated successfully!");
       router.push(`/projects/${id}`);
     },

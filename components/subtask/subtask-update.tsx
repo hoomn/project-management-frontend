@@ -28,8 +28,7 @@ export default function SubtaskUpdate({ id }: { id: string }) {
   const mutation = useMutation({
     mutationFn: (updatedSubtask: SubtaskProps) => api.put(`/subtasks/${id}/`, updatedSubtask),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["subtasks", id] });
-      queryClient.invalidateQueries({ queryKey: ["tasks", `${data!.task}`, "subtasks"] });
+      queryClient.invalidateQueries({ queryKey: ["subtasks"] });
       router.push(`/subtasks/${id}`);
     },
     onError: handleMutationError,

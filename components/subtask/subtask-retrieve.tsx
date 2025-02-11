@@ -53,7 +53,8 @@ export default function TaskRetrieve({ id }: { id: string }) {
         <>
           <PageHeader title={subtask.title} items={menuItems} subtaskId={id} borderColor="cyan" />
           <div className="text-end">
-            <Link href={`/subtasks/${subtask.id}/update`} className="btn btn-sm btn-outline-dark me-1">
+            <Link href={`/subtasks/${subtask.id}/update`} className="btn btn-outline-secondary me-1">
+              <Icon icon="pencil-square" />
               update
             </Link>
             <History contentType={subtask.content_type} objectId={subtask.id} />
