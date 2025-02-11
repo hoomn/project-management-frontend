@@ -53,7 +53,7 @@ export default function SignInForm() {
       const response = await signIn("credentials", {
         ...data,
         recaptcha: token,
-        redirect: false,
+        // redirect: false,
       });
 
       if (response?.error) {
