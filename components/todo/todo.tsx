@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Markdown from "react-markdown";
 
 import { TodoProps } from "@/types";
 
@@ -59,7 +60,9 @@ export default function Todo({ todo }: { todo: TodoProps }) {
               disabled={toggleMutation.isPending}
             />
           )}
-          <span className={`mb-0 ${todo.completed ? "text-decoration-line-through" : ""}`}>{todo.description}</span>
+          <span className={`mb-0 ${todo.completed ? "text-decoration-line-through" : ""}`}>
+            <Markdown>{todo.description}</Markdown>
+          </span>
         </div>
 
         <div className="text-muted">
