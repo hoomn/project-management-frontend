@@ -63,7 +63,7 @@ export default function Todo({ todo }: { todo: TodoProps }) {
           <span className={`mb-0 ${todo.completed ? "text-decoration-line-through" : ""}`}>
             <ReactMarkdown
               components={{
-                p: ({ node, children }) => <>{children}</>, // no <p> wrapper
+                p: ({ children }) => <>{children}</>, // no <p> wrapper
               }}
             >
               {todo.description}
