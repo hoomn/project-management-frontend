@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import Markdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
 
 import { TodoProps } from "@/types";
 
@@ -61,7 +61,13 @@ export default function Todo({ todo }: { todo: TodoProps }) {
             />
           )}
           <span className={`mb-0 ${todo.completed ? "text-decoration-line-through" : ""}`}>
-            <Markdown>{todo.description}</Markdown>
+            <ReactMarkdown
+              components={{
+                p: ({ node, children }) => <>{children}</>, // no <p> wrapper
+              }}
+            >
+              {todo.description}
+            </ReactMarkdown>
           </span>
         </div>
 
