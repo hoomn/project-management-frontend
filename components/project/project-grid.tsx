@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { ProjectProps, SortableColumn } from "@/types";
 
 import NoData from "@/components/ui/no-data";
@@ -15,6 +17,8 @@ interface ProjectGridProps {
 }
 
 export default function ProjectGrid({ projects, sortField, sortOrder, onSort }: ProjectGridProps) {
+  const [showDoneProjects, setShowDoneProjects] = useState(false);
+
   if (projects.length === 0) return <NoData type="projects" />;
 
   const columns: SortableColumn[] = [
@@ -29,16 +33,36 @@ export default function ProjectGrid({ projects, sortField, sortOrder, onSort }: 
     { key: "action", label: "" },
   ];
 
+  const activeProjects = projects.filter((project) => project.status !== 1);
+  const doneProjects = projects.filter((project) => project.status === 1);
+  const hasDoneProjects = doneProjects.length > 0;
+
   return (
     <>
       <Table responsive="md">
         <SortableHeader sortField={sortField} sortOrder={sortOrder} onSort={onSort} columns={columns} />
         <tbody>
-          {projects.map((project) => (
+          {activeProjects.map((project) => (
             <ProjectRow key={project.id} project={project} />
           ))}
         </tbody>
       </Table>
+      {hasDoneProjects && (
+        <div className="text-center mb-4">
+          <button className="btn btn-sm btn-link" onClick={() => setShowDoneProjects((prev) => !prev)}>
+            {showDoneProjects ? "hide done projects" : "show done projects"}
+          </button>
+        </div>
+      )}
+      {showDoneProjects && hasDoneProjects && (
+        <Table responsive="md" striped>
+          <tbody>
+            {doneProjects.map((project) => (
+              <ProjectRow key={project.id} project={project} />
+            ))}
+          </tbody>
+        </Table>
+      )}
     </>
   );
 }
